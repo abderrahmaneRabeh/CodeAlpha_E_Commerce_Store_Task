@@ -6,6 +6,7 @@ const databaseSeeder = require("./databaseSeeder");
 const User = require("./models/User");
 const UserRouter = require("./routes/user");
 const ProductRouter = require("./routes/Product");
+const orderRouter = require("./routes/Order");
 
 const PORT = process.env.SERVER_PORT;
 const URL = process.env.DB_URL;
@@ -30,6 +31,9 @@ app.get("/", async (req, res) => {
 });
 // Product Routes
 app.use("/api/product", ProductRouter);
+
+// order Routes
+app.use("/api/order", orderRouter);
 
 app.listen(PORT || 9000, () => {
   console.log("server listening on", PORT);
